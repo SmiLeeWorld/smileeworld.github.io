@@ -1,16 +1,15 @@
-!
 <head>
   <meta charset="UTF-8" />
   <title>SmiLeeWorld</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Favicons -->
+  <!-- Favicons (required in every page head) -->
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 
-  <!-- Identity Graph -->
+  <!-- Identity for Homepage -->
   <link rel="identity" href="/graph/jsonld/index.jsonld">
 
   <!-- Global Navbar Styles -->
@@ -289,55 +288,28 @@
       margin-bottom: 18px;
     }
 
-    /* REALM WARNING */
-    .realm-warning {
-      margin: 60px 0;
-      padding: 40px 0;
-      border-top: 1px solid var(--border-soft);
-      border-bottom: 1px solid var(--border-soft);
+    /* FOOTER */
+    footer {
+      padding-top: 32px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8b8f9b;
     }
 
-    .realm-warning-inner {
-      display: flex;
-      flex-direction: row;
-      gap: 32px;
-      align-items: center;
-      justify-content: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .realm-warning-image {
-      flex: 0 0 164px;
+    .footer-links {
       display: flex;
       justify-content: center;
+      gap: 18px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
     }
 
-    .realm-warning-image img {
-      width: 100%;
-      max-width: 164px;
-      height: auto;
-      border-radius: 12px;
-      filter: grayscale(100%);
-      opacity: 0.9;
-      transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    .footer-links a {
+      color: #c5c8d4;
     }
 
-    .realm-warning-image img:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-      box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
-    }
-
-    .realm-warning-text {
-      flex: 1;
-    }
-
-    .realm-warning-text p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.65;
+    .footer-links a:hover {
+      color: var(--accent);
     }
 
     /* RESPONSIVE */
@@ -349,21 +321,13 @@
       .pillars {
         grid-template-columns: 1fr;
       }
-      .realm-warning-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-      .realm-warning-image img {
-        max-width: 260px;
-      }
     }
-
   </style>
 </head>
+<body>
 
 <body>
 
-  <!-- NAVBAR INCLUDE -->
   <div id="navbar-include"></div>
   <script>
     fetch("/includes/navbar.html")
@@ -371,26 +335,25 @@
       .then(html => document.getElementById("navbar-include").innerHTML = html);
   </script>
 
-  <div class="page">
+<div class="page">
 
-    <!-- HERO -->
-    <section class="hero">
+  <section class="hero">
 
-      <div class="hero-text">
-        <h1>SmiLeeWorld</h1>
-        <p>A mythic creative universe built from lived moments and wandering worlds.</p>
-        <div class="btn-row">
-          <button class="btn" onclick="location.href='/world'">Enter the World</button>
-          <button class="btn" onclick="location.href='/about'">About SmiLee</button>
-          <button class="btn" onclick="location.href='/works'">Works</button>
-        </div>
+    <div class="hero-text">
+      <h1>SmiLeeWorld</h1>
+      <p>A mythic creative universe built from lived moments and wandering worlds.</p>
+      <div class="btn-row">
+        <button class="btn" onclick="location.href='/world'">Enter the World</button>
+        <button class="btn" onclick="location.href='/about'">About SmiLee</button>
+        <button class="btn" onclick="location.href='/works'">Works</button>
       </div>
+    </div>
 
-      <div class="hero-image">
-        <img src="smileedark.png" alt="SmiLee deep void portrait" />
-      </div>
+    <div class="hero-image">
+      <img src="smileedark.png" alt="SmiLee deep void portrait" />
+    </div>
 
-    </section>
+  </section>
 
 
     <!-- WORLD SECTION -->
@@ -410,24 +373,6 @@
       </div>
     </section>
 
-    <section class="realm-warning">
-      <div class="realm-warning-inner">
-
-        <div class="realm-warning-image">
-          <img src="/images/construction-164.png" alt="Realm portal forming">
-        </div>
-
-        <div class="realm-warning-text">
-          <p>
-            Please be advised: Many of the pathways and portals into these Realms are still being forged and stabilized. 
-            Along your journey you may encounter unfinished pages, missing images, or placeholder 
-            manifestations. SmiLee offers his thanks for your patience as he continues to summon 
-            and shape what lies ahead.
-          </p>
-        </div>
-
-      </div>
-    </section>
     <!-- PILLARS -->
     <section class="section">
       <div class="pillars">
@@ -459,7 +404,6 @@
       </div>
     </section>
 
-
     <!-- MANIFESTO -->
     <section class="section">
       <div class="manifesto">
@@ -468,31 +412,8 @@
       </div>
     </section>
 
+  </div>
 
-    <!-- REALM WARNING (NOW CORRECTLY INSIDE .page) -->
-    <section class="realm-warning">
-      <div class="realm-warning-inner">
-
-        <div class="realm-warning-image">
-          <img src="/images/construction-164.png" alt="Realm portal forming">
-        </div>
-
-        <div class="realm-warning-text">
-          <p>
-            Please be advised: Many of the pathways and portals into these Realms are still being forged and stabilized. 
-            Along your journey you may encounter unfinished pages, missing images, or placeholder 
-            manifestations. SmiLee offers his thanks for your patience as he continues to summon 
-            and shape what lies ahead.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-  </div> <!-- END .page -->
-
-
-  <!-- SCROLL SCRIPT -->
   <script>
     window.addEventListener("scroll", () => {
       if (window.scrollY > 120) {
@@ -502,16 +423,14 @@
       }
     });
   </script>
-
-  <!-- FOOTER INCLUDE -->
-  <div id="footer-include"></div>
-  <script>
-    fetch("/includes/footer.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("footer-include").innerHTML = data;
-      });
-  </script>
+<div id="footer-include"></div>
+<script>
+  fetch("/includes/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-include").innerHTML = data;
+    });
+</script>
 
 </body>
 </html>
