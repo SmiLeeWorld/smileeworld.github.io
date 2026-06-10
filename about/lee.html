@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lee Grimwade — SmiLeeWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="identity" href="/graph/jsonld/lee.jsonld">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --accent: #c9a24d;
+      --text-main: #f5f5f5;
+      --text-muted: #b3b3b3;
+      --border-soft: #1a1a1a;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero-full {
+      width: 100%;
+      height: 70vh;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 60px;
+      margin-top: 80px;
+      border-bottom: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lee-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/monochromeportrait.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      filter: blur(16px) brightness(0.48) saturate(85%);
+      transform: scale(1.16);
+      z-index: 1;
+    }
+
+    .lee-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right,
+          rgba(0,0,0,0.60) 0%,
+          rgba(0,0,0,0.30) 40%,
+          rgba(0,0,0,0.05) 100%
+        ),
+        radial-gradient(circle at center,
+          rgba(201,162,77,0.12) 0%,
+          rgba(0,0,0,0.50) 100%
+        );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-full::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg,
+          rgba(255,255,255,0.015) 0px,
+          rgba(255,255,255,0.015) 1px,
+          rgba(0,0,0,0.015) 2px
+        ),
+        repeating-linear-gradient(90deg,
+          rgba(255,255,255,0.02) 0px,
+          rgba(255,255,255,0.02) 1px,
+          rgba(0,0,0,0.02) 3px
+        );
+      mix-blend-mode: overlay;
+      opacity: 0.18;
+      animation: drift 22s linear infinite;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-8%); }
+    }
+
+    .hero-portrait {
+      position: absolute;
+      bottom: 168px;
+      left: 100px;
+      z-index: 5;
+      pointer-events: none;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.60));
+    }
+
+    .hero-portrait img {
+      width: 260px;
+      border-radius: 12px;
+      filter: grayscale(100%) contrast(1.18);
+      opacity: 0.97;
+      transition: opacity 0.4s ease, filter 0.4s ease;
+    }
+
+    .hero-portrait img:hover {
+      opacity: 1;
+      filter: grayscale(0%) contrast(1.22);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      text-shadow: 0 0 16px rgba(0,0,0,0.9);
+      color: var(--accent);
+      white-space: nowrap;
+      position: relative;
+      z-index: 6;
+      margin-top: 155px;
+    }
+
+    .hero-title .big-letter {
+      font-size: 1.30em;
+      letter-spacing: 0.03em;
+      display: inline-block;
+    }
+
+    /* CONTENT */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .split-section {
+      display: flex;
+      gap: 40px;
+      align-items: center; /* centered vertically */
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .split-text { flex: 1.4; }
+
+    .split-image {
+      display: flex;
+      align-items: center;
+    }
+
+    .split-image img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 12px;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.14);
+      opacity: 0.9;
+      transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .split-image img:hover {
+      filter: grayscale(0%) contrast(1.18);
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(201,162,77,0.35);
+    }
+
+    @media (max-width: 800px) {
+      .split-section { flex-direction: column; text-align: center; }
+      .hero-portrait {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 150px;
+      }
+      .hero-portrait img { width: 200px; }
+      .split-image img { max-width: 300px; margin: 0 auto; }
+    }
+
+    .btn-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #111;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      color: var(--text-main);
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="navbar-include"></div>
+  <script>
+    fetch("/includes/navbar.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("navbar-include").innerHTML = html);
+  </script>
+
+  <div class="hero-full lee-hero">
+
+    <div class="hero-portrait">
+      <img src="/images/monochromeportrait.jpg" alt="Lee portrait">
+    </div>
+
+    <div class="hero-title">
+      <span class="big-letter">L</span>EE
+    </div>
+
+  </div>
+
+  <div class="page">
+
+    <h2>The Human Persona</h2>
+    <p>
+      Lee Grimwade is the grounded, human layer of the creative identity — the one who walks
+      through the real world, observes it closely, and carries its textures, stories, and
+      contradictions. His lived experiences form the foundation upon which SmiLee builds the
+      mythic, expressive, and cinematic universe of SmiLeeWorld.
+    </p>
+
+    <p>
+      Where SmiLee transforms experience into creative expression, Lee is the one who
+      encounters the world directly — with a camera, a notebook, and an instinct for
+      noticing the quiet, the intimate, and the meaningful.
+    </p>
+
+    <div class="split-section">
+
+      <div class="split-image">
+        <img src="/images/smilee-forest-camera.jpg" alt="Lee filming in the forest">
+      </div>
+
+      <div class="split-text">
+
+        <h2>The Documentarian</h2>
+        <p>
+          Lee is the archivist of the real — the one who preserves lived moments, cultural
+          textures, and the emotional landscapes of people and places. His documentary
+          sensibility forms the factual backbone of SmiLeeWorld, grounding the mythic layers
+          in lived experience.
+        </p>
+
+        <p>
+          From Zürich’s international youth culture to forests, lakesides, and forgotten
+          corners of the world, Lee witnesses and records the world as it is — offering the raw
+          material that SmiLee later transforms into creative work.
+        </p>
+
+        <h2>Creative Practices</h2>
+        <p>
+          The creative expressions associated with SmiLee — filmmaking, photography, music,
+          worldbuilding — all draw from Lee’s lived experiences. Lee gathers the world;
+          SmiLee reshapes it.
+        </p>
+
+        <p>
+          In this way, Lee and SmiLee form a dual‑layered identity: one grounded in reality,
+          the other free to create, mythologize, and build new worlds from what the human
+          persona has witnessed.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="location.href='/about/smilee.html'">Meet SmiLee</button>
+      <button class="btn" onclick="location.href='/works'">Explore the Works</button>
+      <button class="btn" onclick="location.href='/archive'">Visit the Archive</button>
+    </div>
+
+  </div>
+
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("footer-include").innerHTML = html);
+  </script>
+
+  <script>
+    fetch('/graph/jsonld/lee.jsonld')
+      .then(r => r.json())
+      .then(data => {
+        console.log("Loaded Lee JSON‑LD:", data)
+        window.SmiLee = window.SmiLee || {}
+        window.SmiLee.lee = data
+      })
+      .catch(err => console.error("JSON‑LD load error:", err))
+  </script>
+
+</body>
+</html>

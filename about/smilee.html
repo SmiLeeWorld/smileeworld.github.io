@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmiLee — SmiLeeWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Corrected identity link -->
+  <link rel="identity" href="/graph/jsonld/smilee.jsonld">
+
+  <!-- Global Navbar Styles -->
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --accent: #f4c15b;
+      --text-main: #f5f5f5;
+      --text-muted: #b3b3b3;
+      --border-soft: #1a1a1a;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+/* HERO CONTAINER */
+.hero-full {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 60px;
+  margin-top: 80px;
+  border-bottom: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
+/* BACKGROUND IMAGE (grayscale layer + cinematic drift) */
+.hero-full::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/butterfly-forest.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: filter 0.6s ease;
+  z-index: 1;
+
+  /* Cinematic drift */
+  animation: cinematic-drift 18s ease-in-out infinite;
+}
+
+/* HOVER → COLOR */
+.hero-full:hover::before {
+  filter: grayscale(0%);
+}
+
+/* HERO TITLE (always in color, correct sizing) */
+.hero-title {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 12px rgba(0,0,0,0.8);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* CAMELCASE ILLUSION */
+.hero-title .big-letter {
+  font-size: 1.25em;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* CINEMATIC DRIFT KEYFRAMES */
+@keyframes cinematic-drift {
+  0%   { transform: scale(1.03) translate(0px, 0px); }
+  50%  { transform: scale(1.03) translate(0px, -4px); }
+  100% { transform: scale(1.03) translate(0px, 0px); }
+}
+
+    /* SPLIT SECTIONS */
+    .split-section {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .split-text {
+      flex: 1.4;
+    }
+
+    .split-image img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 12px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      opacity: 0.9;
+      transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .split-image img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
+    }
+
+    @media (max-width: 800px) {
+      .split-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .split-image img {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .btn-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #111;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      color: var(--text-main);
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR INCLUDE -->
+  <div id="navbar-include"></div>
+  <script>
+    fetch("/includes/navbar.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("navbar-include").innerHTML = html);
+  </script>
+
+  <!-- HERO -->
+  <div class="hero-full" style="background-image: url('/images/butterfly-forest.jpg');">
+    <div class="hero-title">
+      <span class="big-letter">S</span>MI<span class="big-letter">L</span>EE
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page">
+
+    <div class="section">
+      <h2>The Mythic Persona</h2>
+<p>SmiLee is the creative persona behind the films, music, photographs, writings, sets, and constructed worlds of SmiLeeWorld — a mythic, expressive layer that transforms lived experience into art. This persona moves through forests, cities, creative realms, and liminal spaces not just to wander, but to transform. Where Lee encounters the world directly, SmiLee is the current that reshapes those lived experiences into story, symbol, sound, and cinematic imagination.</p>
+
+<p>This persona embodies the dreamer; the wanderer; the wizard‑scholar of sound, image, and story; and the creative alchemist working across film, music, photography, and design. SmiLee steps beyond the visible world and into the mythic, returning with fragments of narrative, image, and meaning that become the foundation of SmiLeeWorld.</p>
+
+<p>SmiLee is the creative force of the universe — the maker who turns Lee’s gathered experiences into artistic expression — building, composing, designing, and crafting the works that define the universe.
+      </p>
+
+<h2>Creative Outputs  </h2>
+<p>SmiLee’s work takes form in films shaped from memory, musical compositions drawn from emotional landscapes, photographic sequences that echo symbolic motifs, written fragments that become lore, and constructed sets and worlds that give physical shape to imagination. Each creation is a translation — lived experience passing through a mythic lens and returning as art.</p>
+  </div>
+
+    <!-- SPLIT SECTION 1 -->
+    <div class="split-section">
+
+      <div class="split-image">
+        <img src="/images/glowing-book.jpg" alt="Arcane library glowing book">
+      </div>
+
+      <div class="split-text">
+        <h2>Creative Mythic Practices</h2>
+
+        <p>SmiLee works across creative, symbolic, and mythic modes of expression — mythic forms that mirror real creative disciplines such as filmmaking, music, photography, writing, design, and worldbuilding, expressed through symbolic and imaginative language.</p>
+        <p>
+          <strong>Mythmaking</strong> — shaping the symbolic universe of SmiLeeWorld. <br>
+          <strong>Worldbuilding</strong> — constructing realms, lore, and cosmology. <br>
+          <strong>Arcane Study</strong> — exploring the Codex, Glyphs, and ancient knowledge. <br>
+          <strong>Wandering</strong> — moving through landscapes as ritual and story‑gathering. <br>
+          <strong>Creative Alchemy</strong> — blending sound, image, and narrative into myth. <br>
+        </p>
+<p>These practices are where Lee’s lived experiences become raw material, and SmiLee transforms them into creative expression.</p>
+<h2>Voice & Aesthetic  </h2>
+<p>The aesthetic of SmiLeeWorld emerges from contrasts: shadow and color, silence and resonance, the real and the symbolic. SmiLee’s voice carries the cadence of wandering, ritual, and discovery — shaped by the textures Lee encounters and transformed into mythic expression. The work is cinematic yet intimate, grounded yet otherworldly, always moving between what is seen and what is felt.</p>
+      </div>
+
+    </div>
+
+    <!-- SPLIT SECTION 2 -->
+    <div class="split-section">
+
+      <div class="split-image">
+        <br><img src="/images/golden-scrolls.jpg" alt="Golden scrolls room">
+      </div>
+
+      <div class="split-text">
+        <h2>The Keeper of Lore</h2>
+
+        <p>
+    Beyond mythmaking and wandering, SmiLee is the archivist of the symbolic — the one who preserves imagined histories, forgotten stories, and fragments of worlds. This is the mythic counterpart to Lee’s documentary archiving: a preservation of the unseen, the remembered, and the dream‑carried.
+        </p>
+
+        <p>
+The scrolls, glyphs, and codices form the backbone of the Mythos — the deep structure of SmiLeeWorld, continually expanded and reinterpreted through SmiLee’s creative work.
+        </p>
+<p>Through SmiLee, the world becomes story — and the story becomes a world.</p>
+      </div>
+
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="location.href='/about/lee.html'">Meet Lee</button>
+      <button class="btn" onclick="location.href='/works'">Explore the Works</button>
+      <button class="btn" onclick="location.href='/mythos'">Enter the Mythos</button>
+    </div>
+
+  </div>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("footer-include").innerHTML = html);
+  </script>
+
+  <!-- Scroll Behavior -->
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- JSON-LD Fetch -->
+  <script>
+    fetch('/graph/jsonld/smilee.jsonld')
+      .then(r => r.json())
+      .then(data => {
+        console.log("Loaded SmiLee JSON‑LD:", data)
+        window.SmiLee = window.SmiLee || {}
+        window.SmiLee.smilee = data
+      })
+      .catch(err => console.error("JSON‑LD load error:", err))
+  </script>
+
+</body>
+</html>

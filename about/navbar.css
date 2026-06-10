@@ -1,0 +1,193 @@
+/* ============================================================
+   NAVBAR — Canonical Global Stylesheet
+   Used by all pages via /includes/navbar.html
+   ============================================================ */
+
+/* NAVBAR CONTAINER */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+/* INNER WRAPPER */
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ============================================================
+   LOGO — Reset + Kerning System
+   ============================================================ */
+
+/* Reset inherited global styles */
+.nav-logo,
+.nav-logo a,
+.nav-logo span,
+.nav-logo .big-letter {
+  all: unset;
+  display: inline-block;
+  font-family: inherit;
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(244, 193, 91, 0.7);
+  white-space: nowrap;
+}
+
+/* Base logo container */
+.nav-logo {
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Big-letter kerning */
+.nav-logo .big-letter {
+  font-size: 1.15em;
+  margin-right: -0.03em;
+  position: relative;
+  top: -0.02em;
+  vertical-align: baseline;
+  letter-spacing: 0.02em;
+}
+
+/* L-specific refinement */
+.nav-logo .big-letter.L {
+  font-size: 1.11em;
+  margin-right: 0.06em;
+  letter-spacing: 0.01em;
+  top: -0.018em;
+}
+
+/* W-specific refinement */
+.nav-logo .big-letter.W {
+  margin-right: -0.045em;
+}
+
+/* ============================================================
+   NAV LINKS
+   ============================================================ */
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown > button {
+  color: #f5f5f5;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.dropdown > button:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ============================================================
+   DROPDOWN
+   ============================================================ */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #0a0a0a;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 6px 0;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.dropdown-content a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ============================================================
+   SCROLLED STATE
+   ============================================================ */
+
+.scrolled .navbar {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 10px 0;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 800px) {
+  .nav-links {
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   MYTHOS‑SAFE NAVBAR REFINEMENTS
+   (Placed AFTER all other rules — overrides everything cleanly)
+   ============================================================ */
+
+/* Isolate navbar from hero blend layers */
+nav {
+  position: relative;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+/* Remove all underlines in all states */
+nav a,
+nav a:visited,
+nav a:active {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+nav a:hover {
+  text-decoration: none !important;
+  opacity: 0.85;
+}
+
+/* Active page highlight */
+nav a.active {
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(201,162,77,0.45);
+}

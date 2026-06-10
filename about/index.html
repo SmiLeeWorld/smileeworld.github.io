@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – SmiLeeWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Identity for About Overview -->
+  <link rel="identity" href="/graph/jsonld/index.jsonld">
+
+  <!-- Global Navbar Styles -->
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --card-bg: #0a0a0a;
+      --border-soft: #111111;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9a9a;
+      --accent: #f4c15b;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 20px 80px;
+    }
+
+    /* IMAGE BLOCKS */
+    .image-block {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .image-block img {
+      width: 100%;
+      max-width: 780px;
+      border-radius: 12px;
+      filter: grayscale(100%);
+      opacity: 0.9;
+      transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .image-block img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
+    }
+
+    .side-by-side {
+      display: flex;
+      gap: 24px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .side-by-side figure {
+      flex: 1;
+      min-width: 260px;
+      text-align: center;
+    }
+
+    .side-by-side img {
+      width: 100%;
+      border-radius: 12px;
+      filter: grayscale(100%);
+      opacity: 0.9;
+      transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .side-by-side img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
+    }
+
+    /* ABOUT PAGE CONTENT */
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .btn-row {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #111;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR INCLUDE -->
+  <div id="navbar-include"></div>
+  <script>
+    fetch("/includes/navbar.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("navbar-include").innerHTML = html;
+      });
+  </script>
+
+  <div class="page">
+
+    <h1>About SmiLeeWorld</h1>
+
+    <!-- HERO IMAGE PLACEHOLDER -->
+
+    <div class="section">
+      <p>
+        SmiLeeWorld is a mythic creative universe built from lived moments, wandering worlds,
+        and the dual identity of its creator. It is part documentary, part dream‑realm,
+        part archive, and part mythos — a place where real landscapes, personal history,
+        and imaginative storytelling merge into a single evolving world.
+      </p>
+<p>SmiLeeWorld is the successor to SmiLeeOnline.com — the early‑2000s digital origin point whose guestbook, screenshots, and creative fragments now form part of the Archive.</p>
+
+      <p>
+The universe is rooted in the Swiss creative geography of the early 2000s — the Zürichsee shoreline, the quiet streets of Erlenbach and Zumikon, the lakeside paths of Männedorf, the urban pulse of Wipkingen, the stone corridors of the Niederdorf, and the iconic flow of Stadelhofen. These places form the origin of the world, shaping its early tone, memory, and mythic resonance.
+But SmiLeeWorld has grown far beyond Switzerland — shaped by later chapters in England and the United States, particularly the West Coast, where most of the creator’s adult life and creative evolution have unfolded.
+      </p>
+
+      <p>
+        This space serves as the central hub for everything connected to SmiLee and Lee Grimwade:
+        the persona, the human, the works, the archives, and the lore. It is a living ecosystem —
+        one that grows as new films, photographs, writings, and mythic passages emerge.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>The Dual Identity</h2>
+
+      <p>
+        At the heart of SmiLeeWorld is a dual identity:
+      </p>
+
+      <p>
+        <strong>SmiLee</strong> — the mythic artist, the wandering wizard, the creative persona
+        who moves between worlds, gathering stories, symbols, and moments. The mythic layer is
+        anchored by the <strong>Wanderful Wizard Codex</strong>, the central artifact of the
+        SmiLeeWorld mythos — a living manuscript of passages, glyphs, epochs, seals, and lore.
+      </p>
+
+      <p>
+        <strong>Lee Grimwade</strong> — the human witness, documentarian, and archivist whose lived experiences form the real‑world foundation of this universe.  
+He operated in Zürich throughout the early to mid‑2000s, documenting international youth culture — train stations, lakeside gatherings, night walks, early digital cameras, and cross‑cultural friendships. In the years since, he has lived and worked in England and the United States, particularly the West Coast, continuing to gather the lived moments that SmiLee later transforms into mythic expression.
+Lee maintains an extensive personal archive — tens of thousands of photographs, videos, recordings, and digital artifacts — curated, indexed, and preserved with documentary precision. This living library forms the raw material from which SmiLeeWorld continually grows.
+</p>
+
+      <p>
+        Together, they form a single creative continuum — one grounded in reality,
+        the other expanding it into myth.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>The Three Realms</h2>
+
+      </div>
+
+      <p>
+        SmiLeeWorld is structured around three major realms:
+      </p>
+
+      <p>
+        <strong>The Works</strong> — films, photography, music, writing, and creative experiments.
+        This includes documentary filmmaking, vérité photography, live‑music capture, and
+        experimental worldbuilding media.
+      </p>
+
+      <p>
+        <strong>The Archive</strong> — Zürich‑era history, youth culture, early digital artifacts,
+        and the foundational <strong>SmiLeeOnline 2001</strong> website, whose guestbook,
+        screenshots, and early creative identity form a crucial part of the world’s lineage.
+      </p>
+
+      <p>
+        <strong>The Mythos</strong> — the Wanderful Wizard Codex, glyphs, epochs, seals, and lore.
+        This realm contains the deep structure of the universe — the mythic architecture that
+        transforms lived experience into symbolic narrative.
+      </p>
+
+      <p>
+        Each realm reflects a different facet of the creative identity — the present,
+        the past, and the mythic.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Where to Begin</h2>
+      <p>
+        If you're new to SmiLeeWorld, start with the persona pages or explore the Works.
+        If you're here for the deeper lore, the Mythos awaits. If you're interested in
+        the historical roots, the Archive holds the early fragments — from Zürich nights
+        to lakeside wanderings to the digital relics of 2001.
+      </p>
+
+      <div class="btn-row">
+        <button class="btn" onclick="location.href='/about/smilee.html'">Meet SmiLee</button>
+        <button class="btn" onclick="location.href='/about/lee.html'">Meet Lee Grimwade</button>
+        <button class="btn" onclick="location.href='/works'">Explore the Works</button>
+        <button class="btn" onclick="location.href='/mythos'">Enter the Mythos</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll Behavior -->
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-include").innerHTML = html;
+      });
+  </script>
+
+  <!-- JSON-LD Fetch -->
+  <script>
+    fetch('/graph/jsonld/index.jsonld')
+      .then(r => r.json())
+      .then(data => {
+        console.log("Loaded About JSON‑LD:", data)
+        window.SmiLee = window.SmiLee || {}
+        window.SmiLee.about = data
+      })
+      .catch(err => console.error("JSON‑LD load error:", err))
+  </script>
+
+</body>
+</html>
