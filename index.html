@@ -330,16 +330,25 @@
 
 .realm-warning-inner {
   display: flex;
+  flex-direction: row;        /* ← forces side-by-side */
   gap: 32px;
   align-items: center;
-  max-width: 1000px;
+  justify-content: center;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+.realm-warning-image {
+  flex: 0 0 320px;            /* ← FIX: reserves horizontal space */
+  display: flex;
+  justify-content: center;
+}
+
 .realm-warning-image img {
   width: 100%;
-  max-width: 360px; /* ← controls image size */
+  max-width: 320px;           /* ← FIX: caps image width */
+  height: auto;
   border-radius: 12px;
   filter: grayscale(100%);
   opacity: 0.9;
@@ -353,7 +362,7 @@
 }
 
 .realm-warning-text {
-  flex: 1;
+  flex: 1;                    /* ← FIX: text fills remaining space */
 }
 
 .realm-warning-text p {
@@ -361,6 +370,23 @@
   font-size: 1.05rem;
   line-height: 1.65;
 }
+
+/* Mobile stacking */
+@media (max-width: 800px) {
+  .realm-warning-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .realm-warning-image {
+    flex: none;
+  }
+
+  .realm-warning-image img {
+    max-width: 260px;
+  }
+}
+
 
 /* Mobile stacking */
 @media (max-width: 800px) {
