@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lost in the Realms – SmiLeeWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --card-bg: #0a0a0a;
+      --border-soft: #111111;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9a9a;
+      --accent: #f4c15b;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 160px 20px 80px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 14px 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-shadow: 0 0 6px rgba(244, 193, 91, 0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a,
+    .dropdown > button {
+      color: #f5f5f5;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover,
+    .dropdown > button:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #0a0a0a;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 12px;
+      min-width: 180px;
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 6px 0;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .dropdown-content a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .scrolled .navbar {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px 0;
+    }
+
+    /* 404 CONTENT */
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* PORTAL + WIZARD + PULSING RING */
+    .portal {
+      position: relative;
+      margin: 40px auto;
+      width: 260px;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portal-ring {
+      position: absolute;
+      width: 110%;
+      height: 110%;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 20px rgba(244,193,91,0.4);
+      animation: pulse 2.4s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    .portal-image {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      height: auto;
+      opacity: 0.78;
+      filter: drop-shadow(0 0 14px rgba(244,193,91,0.55));
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        filter 0.35s ease;
+      animation: idle-breathe 4.5s ease-in-out infinite;
+    }
+
+    @keyframes idle-breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.015); }
+    }
+
+    .portal:hover .portal-image {
+      opacity: 1;
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 24px rgba(244,193,91,0.9));
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(244,193,91,0.3); }
+      50% { box-shadow: 0 0 26px rgba(244,193,91,0.7); }
+      100% { box-shadow: 0 0 10px rgba(244,193,91,0.3); }
+    }
+
+    .links {
+      margin-top: 40px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 8px 12px;
+      color: var(--accent);
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+
+      <div class="nav-logo">
+        <a href="/index.html">SmiLeeWorld</a>
+      </div>
+
+      <div class="nav-links">
+
+        <div class="dropdown">
+          <button>About</button>
+          <div class="dropdown-content">
+            <a href="/about">Overview</a>
+            <a href="/about/smilee.html">SmiLee</a>
+            <a href="/about/lee.html">Lee Grimwade</a>
+            <a href="/press">Press Mentions</a>
+            <a href="/press/kit/">Press Kit</a>
+            <a href="/manifesto">Manifesto</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Works</button>
+          <div class="dropdown-content">
+            <a href="/works/film">Film & Video</a>
+            <a href="/works/photography">Photography</a>
+            <a href="/works/music">Music</a>
+            <a href="/works/artworks">Artworks</a>
+            <a href="/works/writing">Writing</a>
+            <a href="/works/installations">Installations</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>World</button>
+          <div class="dropdown-content">
+            <a href="/world">Overview</a>
+            <a href="/world/realms">Realms</a>
+            <a href="/world/geography">Geography</a>
+            <a href="/world/index">World Index</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Archive</button>
+          <div class="dropdown-content">
+            <a href="/archive/early_photography">Early Photography</a>
+            <a href="/archive/early_writing">Early Writing</a>
+            <a href="/archive/early_music">Early Music</a>
+            <a href="/archive/collaborations">Collaborations</a>
+            <a href="/archive/digital_artifacts">Digital Artifacts</a>
+            <a href="/archive/smileeonline">SmiLeeOnline 2001</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Mythos</button>
+          <div class="dropdown-content">
+            <a href="/mythos/codex">Wanderful Wizard Codex</a>
+            <a href="/mythos/passages">Passages</a>
+            <a href="/mythos/glyphs">Glyphs</a>
+            <a href="/mythos/epochs">Epochs</a>
+            <a href="/mythos/seals">Seals</a>
+            <a href="/mythos/lore">Lore</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <h1>Lost in the Realms</h1>
+    <p class="tagline">404 — The Portal Has Not Yet Manifested</p>
+
+    <div class="portal">
+      <div class="portal-ring"></div>
+      <img src="/images/wizard-silhouette.png" alt="Portal Wizard" class="portal-image">
+    </div>
+
+    <p class="message">
+      You’ve wandered into a region of SmiLeeWorld that technically *exists*, but only in the same way a half‑remembered dream exists — which is to say, not very reliably.<br><br>
+
+      The glyphs have been whispering about this place for ages, but every time someone tries to map it, the map catches fire, apologizes, and quietly folds itself into a swan.<br><br>
+
+      A portal *is* forming — or at least that’s what it claims — but right now it’s behaving like a moody teenager who refuses to come downstairs until it has “finished becoming transcendent.”<br><br>
+
+      The seals are circling, the runes are arguing about whose turn it is to glow, and the whole realm is in that awkward phase between “under construction” and “having an existential crisis.”<br><br>
+
+      So for now, this path remains unmanifested.<br>
+      Don’t worry — you haven’t broken anything. This realm simply hasn’t decided what it wants to be yet. Some places take longer to hatch.
+    </p>
+
+    <div class="links">
+      <a href="/index.html">Return to the Main Realm</a>
+      <a href="/world/index">Explore the World Index</a>
+      <a href="/mythos/codex">Consult the Codex</a>
+      <a href="/works/index.html">View the Works</a>
+    </div>
+
+  </div>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+<div id="footer-include"></div>
+<script>
+  fetch("/includes/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-include").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

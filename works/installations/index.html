@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Installations – SmiLeeWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Identity for Installations -->
+  <link rel="identity" href="/graph/jsonld/works-installations.jsonld">
+
+  <!-- Global Navbar Styles -->
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --card-bg: #0a0a0a;
+      --border-soft: #111111;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9a9a;
+      --accent: #f4c15b;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 20px 80px;
+    }
+
+    /* CONTENT */
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .install-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .install-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .install-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .install-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR INCLUDE -->
+  <div id="navbar-include"></div>
+  <script>
+    fetch("/includes/navbar.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("navbar-include").innerHTML = html;
+      });
+  </script>
+
+  <div class="page">
+
+    <h1>Installations</h1>
+
+    <div class="section">
+      <p>
+        Installations are the physical manifestations of SmiLeeWorld — constructed environments,
+        set pieces, symbolic objects, and immersive builds that extend the mythos into real space.
+        These works merge world‑building, design, and narrative architecture into tangible form.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Major Installations</h2>
+
+      <div class="install-grid">
+
+        <div class="install-card">
+          <h3><a href="/works/installations/enterprise-bridge">The Enterprise Bridge</a></h3>
+          <p>
+            A full‑scale recreation and reinterpretation of the iconic sci‑fi command deck —
+            blending fandom, craftsmanship, and mythic symbolism.
+          </p>
+        </div>
+
+        <div class="install-card">
+          <h3><a href="/works/installations/sci-fi-museum">Sci‑Fi World Museum</a></h3>
+          <p>
+            A curated physical space housing props, artifacts, and constructed worlds — a
+            living museum of imagination and narrative history.
+          </p>
+        </div>
+
+        <div class="install-card">
+          <h3><a href="/works/installations/early-zurich-builds">Early Zürich Installations</a></h3>
+          <p>
+            Lakeside constructions, symbolic objects, and early spatial experiments created
+            during the formative Zürich years.
+          </p>
+        </div>
+
+        <div class="install-card">
+          <h3><a href="/works/installations/mythic-objects">Mythic Objects</a></h3>
+          <p>
+            Physical artifacts tied to the Codex — symbolic items, crafted pieces, and
+            world‑objects that anchor the mythos.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll Behavior -->
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-include").innerHTML = html;
+      });
+  </script>
+
+  <!-- JSON-LD FETCH -->
+  <script>
+    fetch('/graph/jsonld/works-installations.jsonld')
+      .then(r => r.json())
+      .then(data => {
+        console.log("Loaded Installations JSON‑LD:", data)
+        window.SmiLee = window.SmiLee || {}
+        window.SmiLee.installations = data
+      })
+      .catch(err => console.error("JSON‑LD load error:", err))
+  </script>
+
+</body>
+</html>

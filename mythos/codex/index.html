@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wanderful Wizard Codex – SmiLeeWorld Mythos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Identity for Codex -->
+  <link rel="identity" href="/graph/jsonld/mythos-codex.jsonld">
+
+  <!-- Global Navbar Styles -->
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --card-bg: #0a0a0a;
+      --border-soft: #111111;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9a9a;
+      --accent: #f4c15b;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 20px 80px;
+    }
+
+    /* CONTENT */
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .codex-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .codex-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .codex-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .codex-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR INCLUDE -->
+  <div id="navbar-include"></div>
+  <script>
+    fetch("/includes/navbar.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("navbar-include").innerHTML = html;
+      });
+  </script>
+
+  <div class="page">
+
+    <h1>Wanderful Wizard Codex</h1>
+
+    <div class="section">
+      <p class="tagline">THE MYTHIC CORE OF SMILEEWORLD</p>
+      <p>
+        The Wanderful Wizard Codex is the central mythic document of SmiLeeWorld — a living,
+        evolving manuscript that blends narrative, philosophy, symbolism, and personal mythology.
+        It contains Passages, Glyphs, Epochs, Seals, and the deeper lore that shapes the world.
+      </p>
+      <p>
+        This page serves as the gateway to the Codex. Each section below opens into a deeper
+        chamber of the mythos.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Codex Structure</h2>
+
+      <div class="codex-grid">
+
+        <div class="codex-card">
+          <h3><a href="/mythos/passages">Passages</a></h3>
+          <p>
+            The written backbone of the mythos — short, potent texts that define the voice and
+            philosophy of the SmiLee persona.
+          </p>
+        </div>
+
+        <div class="codex-card">
+          <h3><a href="/mythos/glyphs">Glyphs</a></h3>
+          <p>
+            The symbolic language of the world — visual marks representing concepts, thresholds,
+            and recurring motifs.
+          </p>
+        </div>
+
+        <div class="codex-card">
+          <h3><a href="/mythos/epochs">Epochs</a></h3>
+          <p>
+            The mythic timeline — eras of transformation, wandering, and narrative evolution.
+          </p>
+        </div>
+
+        <div class="codex-card">
+          <h3><a href="/mythos/seals">Seals</a></h3>
+          <p>
+            Emblems of authority, protection, and mythic identity — used to mark chapters,
+            thresholds, and rites.
+          </p>
+        </div>
+
+        <div class="codex-card">
+          <h3><a href="/mythos/lore">Lore</a></h3>
+          <p>
+            Deeper stories, explanations, and mythic frameworks that bind the Codex together.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll Behavior -->
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-include").innerHTML = html;
+      });
+  </script>
+
+  <!-- JSON-LD FETCH -->
+  <script>
+    fetch('/graph/jsonld/mythos-codex.jsonld')
+      .then(r => r.json())
+      .then(data => {
+        console.log("Loaded Codex JSON‑LD:", data)
+        window.SmiLee = window.SmiLee || {}
+        window.SmiLee.codex = data
+      })
+      .catch(err => console.error("JSON‑LD load error:", err))
+  </script>
+
+</body>
+</html>

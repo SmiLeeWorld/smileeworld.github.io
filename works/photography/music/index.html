@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Music Photography – SmiLeeWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --card-bg: #0a0a0a;
+      --border-soft: #111111;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9a9a;
+      --accent: #f4c15b;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 20px 80px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 14px 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-shadow: 0 0 6px rgba(244, 193, 91, 0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a,
+    .dropdown > button {
+      color: #f5f5f5;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover,
+    .dropdown > button:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #0a0a0a;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 12px;
+      min-width: 180px;
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 6px 0;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .dropdown-content a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .scrolled .navbar {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px 0;
+    }
+
+    /* CONTENT */
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    /* GALLERY GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery-card .caption {
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+
+      <div class="nav-logo">
+        <a href="/index.html">SmiLeeWorld</a>
+      </div>
+
+      <div class="nav-links">
+
+        <div class="dropdown">
+          <button>About</button>
+          <div class="dropdown-content">
+            <a href="/about">Overview</a>
+            <a href="/about/smilee.html">SmiLee</a>
+            <a href="/about/lee.html">Lee Grimwade</a>
+            <a href="/press">Press Mentions</a>
+            <a href="/press/kit/">Press Kit</a>
+            <a href="/manifesto">Manifesto</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Works</button>
+          <div class="dropdown-content">
+            <a href="/works/film">Film & Video</a>
+            <a href="/works/photography">Photography</a>
+            <a href="/works/music">Music</a>
+            <a href="/works/artworks">Artworks</a>
+            <a href="/works/writing">Writing</a>
+            <a href="/works/installations">Installations</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>World</button>
+          <div class="dropdown-content">
+            <a href="/world">Overview</a>
+            <a href="/world/realms">Realms</a>
+            <a href="/world/geography">Geography</a>
+            <a href="/world/index">World Index</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Archive</button>
+          <div class="dropdown-content">
+            <a href="/archive/early_photography">Early Photography</a>
+            <a href="/archive/early_writing">Early Writing</a>
+            <a href="/archive/early_music">Early Music</a>
+            <a href="/archive/collaborations">Collaborations</a>
+            <a href="/archive/digital_artifacts">Digital Artifacts</a>
+            <a href="/archive/smileeonline">SmiLeeOnline 2001</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Mythos</button>
+          <div class="dropdown-content">
+            <a href="/mythos/codex">Wanderful Wizard Codex</a>
+            <a href="/mythos/passages">Passages</a>
+            <a href="/mythos/glyphs">Glyphs</a>
+            <a href="/mythos/epochs">Epochs</a>
+            <a href="/mythos/seals">Seals</a>
+            <a href="/mythos/lore">Lore</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <h1>Music Photography</h1>
+
+    <div class="section">
+      <p>
+        Live performance photography capturing the raw energy, sweat, motion, and mythic glow of
+        musicians in their natural habitat — stages, clubs, rehearsal rooms, and liminal spaces
+        where sound becomes light and presence becomes story.
+      </p>
+    </div>
+
+    <!-- FEATURED MUSIC PHOTOS -->
+    <div class="section">
+      <h2>Featured Music Shots</h2>
+
+      <div class="gallery-grid">
+
+        <!-- VoyageLA Published Shot -->
+        <div class="gallery-card">
+          <a href="https://voyagela.com/interview/a-conversation-with-patrick-cleary-and-the-legacy-of-the-unclaimed/">
+            <img src="https://cdn.voyagela.com/wp-content/uploads/2026/04/c-1774378821631-personal_1774378820635_1774378820635_patrick_cleary_patrick-screaming-unclaimed-by-smilee.jpg" alt="Patrick Cleary – The Unclaimed (by SmiLee)">
+          </a>
+          <div class="caption">Published in VoyageLA — Patrick Cleary (The Unclaimed)</div>
+        </div>
+
+        <!-- VoyageLA Published Shot 2 -->
+        <div class="gallery-card">
+          <a href="https://voyagela.com/interview/a-conversation-with-patrick-cleary-and-the-legacy-of-the-unclaimed/">
+            <img src="https://cdn.voyagela.com/wp-content/uploads/2026/04/c-1774378882195-1774378881056_patrick_cleary_patrick-unclaimed-profile-by-smilee.jpg" alt="Patrick Cleary Profile – The Unclaimed (by SmiLee)">
+          </a>
+          <div class="caption">Published in VoyageLA — Patrick Cleary (Profile)</div>
+        </div>
+
+        <!-- Placeholder for future music shots -->
+        <div class="gallery-card">
+          <img src="/assets/placeholder.jpg" alt="Music Photography Placeholder">
+          <div class="caption">More live performance shots coming soon</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FUTURE SUB‑GALLERIES -->
+    <div class="section">
+      <h2>Sub‑Collections</h2>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-card">
+          <a href="#">
+            <img src="/assets/placeholder.jpg" alt="Bands & Performers">
+          </a>
+          <div class="caption">Bands & Performers</div>
+        </div>
+
+        <div class="gallery-card">
+          <a href="#">
+            <img src="/assets/placeholder.jpg" alt="Rehearsal Rooms">
+          </a>
+          <div class="caption">Rehearsal Rooms</div>
+        </div>
+
+        <div class="gallery-card">
+          <a href="#">
+            <img src="/assets/placeholder.jpg" alt="Backstage Moments">
+          </a>
+          <div class="caption">Backstage Moments</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+<div id="footer-include"></div>
+<script>
+  fetch("/includes/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-include").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

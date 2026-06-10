@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Glyphs – SmiLeeWorld Mythos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Identity for Glyphs -->
+  <link rel="identity" href="/graph/jsonld/mythos-codex.jsonld">
+
+  <!-- Global Navbar Styles -->
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --card-bg: #0a0a0a;
+      --border-soft: #111111;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9a9a;
+      --accent: #f4c15b;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 20px 80px;
+    }
+
+    /* CONTENT */
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .glyph-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .glyph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .glyph-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .glyph-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .glyph-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR INCLUDE -->
+  <div id="navbar-include"></div>
+  <script>
+    fetch("/includes/navbar.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("navbar-include").innerHTML = html;
+      });
+  </script>
+
+  <div class="page">
+
+    <h1>Glyphs</h1>
+
+    <div class="section">
+      <p class="glyph-tagline">SYMBOLIC LANGUAGE OF SMILEEWORLD</p>
+      <p>
+        The Glyphs are the visual language of SmiLeeWorld — compact symbols that hold narrative,
+        emotional, and mythic weight. Each glyph marks a concept, a threshold, or a recurring
+        pattern in the life of the SmiLee persona and the world around him.
+      </p>
+      <p>
+        This page introduces a first constellation of glyphs. Over time, each symbol can expand
+        into its own entry, with variations, usages, and appearances across works.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Core Glyphs</h2>
+
+      <div class="glyph-grid">
+
+        <div class="glyph-card">
+          <h3>The Lake Sigil</h3>
+          <p>
+            A circular glyph evoking water, reflection, and depth. It marks scenes and passages
+            tied to Zürichsee, stillness, and emotional resonance.
+          </p>
+        </div>
+
+        <div class="glyph-card">
+          <h3>The Wanderer Mark</h3>
+          <p>
+            A directional, arrow‑like symbol representing movement, transition, and the act of
+            drifting between worlds, cities, and identities.
+          </p>
+        </div>
+
+        <div class="glyph-card">
+          <h3>The Threshold Line</h3>
+          <p>
+            A horizontal bar used to indicate crossings — from day to night, real to mythic,
+            social to solitary.
+          </p>
+        </div>
+
+        <div class="glyph-card">
+          <h3>The Rooftop Sign</h3>
+          <p>
+            A stepped or angular form symbolizing elevation, distance, and vantage point — tied
+            to rooftop views and quiet observation.
+          </p>
+        </div>
+
+        <div class="glyph-card">
+          <h3>The Forest Spiral</h3>
+          <p>
+            A coiled mark associated with wooded paths, introspection, and recursive thought —
+            walking the same route, differently, over time.
+          </p>
+        </div>
+
+        <div class="glyph-card">
+          <h3>The Continuum Band</h3>
+          <p>
+            A looping, band‑like glyph representing ongoing time, the Wandering Continuum, and
+            the idea that the story never fully closes.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll Behavior -->
+  <script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 120) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-include").innerHTML = html;
+      });
+  </script>
+
+  <!-- JSON-LD FETCH -->
+  <script>
+    fetch('/graph/jsonld/mythos-codex.jsonld')
+      .then(r => r.json())
+      .then(data => {
+        console.log("Loaded Codex JSON‑LD:", data)
+        window.SmiLee = window.SmiLee || {}
+        window.SmiLee.codex = data
+      })
+      .catch(err => console.error("JSON‑LD load error:", err))
+  </script>
+
+</body>
+</html>
