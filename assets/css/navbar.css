@@ -191,3 +191,69 @@ nav a.active {
   color: var(--accent);
   text-shadow: 0 0 6px rgba(201,162,77,0.45);
 }
+/* ============================================================
+   REALM WARNING — Global Notice Block
+   Appears below navbar on all pages
+   ============================================================ */
+
+.realm-warning {
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.realm-warning-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.realm-warning-image {
+  flex: 0 0 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.realm-warning-image img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.realm-warning-image img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
+}
+
+.realm-warning-text {
+  flex: 1;
+}
+
+.realm-warning-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* Mobile stacking */
+@media (max-width: 800px) {
+  .realm-warning-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .realm-warning-image img {
+    max-width: 260px;
+  }
+}
