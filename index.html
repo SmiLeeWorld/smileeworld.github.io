@@ -405,8 +405,7 @@
 </head>
 <body>
 
-<body>
-
+  <!-- NAVBAR INCLUDE -->
   <div id="navbar-include"></div>
   <script>
     fetch("/includes/navbar.html")
@@ -414,25 +413,26 @@
       .then(html => document.getElementById("navbar-include").innerHTML = html);
   </script>
 
-<div class="page">
+  <div class="page">
 
-  <section class="hero">
+    <!-- HERO -->
+    <section class="hero">
 
-    <div class="hero-text">
-      <h1>SmiLeeWorld</h1>
-      <p>A mythic creative universe built from lived moments and wandering worlds.</p>
-      <div class="btn-row">
-        <button class="btn" onclick="location.href='/world'">Enter the World</button>
-        <button class="btn" onclick="location.href='/about'">About SmiLee</button>
-        <button class="btn" onclick="location.href='/works'">Works</button>
+      <div class="hero-text">
+        <h1>SmiLeeWorld</h1>
+        <p>A mythic creative universe built from lived moments and wandering worlds.</p>
+        <div class="btn-row">
+          <button class="btn" onclick="location.href='/world'">Enter the World</button>
+          <button class="btn" onclick="location.href='/about'">About SmiLee</button>
+          <button class="btn" onclick="location.href='/works'">Works</button>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-image">
-      <img src="smileedark.png" alt="SmiLee deep void portrait" />
-    </div>
+      <div class="hero-image">
+        <img src="smileedark.png" alt="SmiLee deep void portrait" />
+      </div>
 
-  </section>
+    </section>
 
 
     <!-- WORLD SECTION -->
@@ -451,6 +451,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- PILLARS -->
     <section class="section">
@@ -483,6 +484,7 @@
       </div>
     </section>
 
+
     <!-- MANIFESTO -->
     <section class="section">
       <div class="manifesto">
@@ -491,23 +493,31 @@
       </div>
     </section>
 
-  </div>
-<section class="realm-warning">
-  <div class="realm-warning-inner">
 
-    <div class="realm-warning-image">
-      <img src="/images/construction-164.png" alt="Realm portal forming">
-    </div>
+    <!-- REALM WARNING (NOW CORRECTLY INSIDE .page) -->
+    <section class="realm-warning">
+      <div class="realm-warning-inner">
 
-    <div class="realm-warning-text">
-      <p>
-The pathways and portals into these Realms are still being forged and stabilized. Along your journey you may encounter unfinished pages, missing images, or placeholder manifestations. SmiLee offers his thanks for your patience as he continues to summon and shape what lies ahead.
-      </p>
-    </div>
+        <div class="realm-warning-image">
+          <img src="/images/construction-164.png" alt="Realm portal forming">
+        </div>
 
-  </div>
-</section>
+        <div class="realm-warning-text">
+          <p>
+            The pathways and portals into these Realms are still being forged and stabilized. 
+            Along your journey you may encounter unfinished pages, missing images, or placeholder 
+            manifestations. SmiLee offers his thanks for your patience as he continues to summon 
+            and shape what lies ahead.
+          </p>
+        </div>
 
+      </div>
+    </section>
+
+  </div> <!-- END .page -->
+
+
+  <!-- SCROLL SCRIPT -->
   <script>
     window.addEventListener("scroll", () => {
       if (window.scrollY > 120) {
@@ -517,14 +527,16 @@ The pathways and portals into these Realms are still being forged and stabilized
       }
     });
   </script>
-<div id="footer-include"></div>
-<script>
-  fetch("/includes/footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-include").innerHTML = data;
-    });
-</script>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-include"></div>
+  <script>
+    fetch("/includes/footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer-include").innerHTML = data;
+      });
+  </script>
 
 </body>
 </html>
