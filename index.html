@@ -1,15 +1,16 @@
+!
 <head>
   <meta charset="UTF-8" />
   <title>SmiLeeWorld</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Favicons (required in every page head) -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 
-  <!-- Identity for Homepage -->
+  <!-- Identity Graph -->
   <link rel="identity" href="/graph/jsonld/index.jsonld">
 
   <!-- Global Navbar Styles -->
@@ -288,28 +289,55 @@
       margin-bottom: 18px;
     }
 
-    /* FOOTER */
-    footer {
-      padding-top: 32px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #8b8f9b;
+    /* REALM WARNING */
+    .realm-warning {
+      margin: 60px 0;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
     }
 
-    .footer-links {
+    .realm-warning-inner {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .realm-warning-image {
+      flex: 0 0 320px;
       display: flex;
       justify-content: center;
-      gap: 18px;
-      margin-bottom: 8px;
-      font-size: 0.9rem;
     }
 
-    .footer-links a {
-      color: #c5c8d4;
+    .realm-warning-image img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 12px;
+      filter: grayscale(100%);
+      opacity: 0.9;
+      transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .footer-links a:hover {
-      color: var(--accent);
+    .realm-warning-image img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
+    }
+
+    .realm-warning-text {
+      flex: 1;
+    }
+
+    .realm-warning-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
     }
 
     /* RESPONSIVE */
@@ -321,88 +349,18 @@
       .pillars {
         grid-template-columns: 1fr;
       }
-.realm-warning {
-  margin: 60px 0;
-  padding: 40px 0;
-  border-top: 1px solid var(--border-soft);
-  border-bottom: 1px solid var(--border-soft);
-}
-
-.realm-warning-inner {
-  display: flex;
-  flex-direction: row;        /* ← forces side-by-side */
-  gap: 32px;
-  align-items: center;
-  justify-content: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.realm-warning-image {
-  flex: 0 0 320px;            /* ← FIX: reserves horizontal space */
-  display: flex;
-  justify-content: center;
-}
-
-.realm-warning-image img {
-  width: 100%;
-  max-width: 320px;           /* ← FIX: caps image width */
-  height: auto;
-  border-radius: 12px;
-  filter: grayscale(100%);
-  opacity: 0.9;
-  transition: filter 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
-}
-
-.realm-warning-image img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-  box-shadow: 0 0 18px rgba(244, 193, 91, 0.35);
-}
-
-.realm-warning-text {
-  flex: 1;                    /* ← FIX: text fills remaining space */
-}
-
-.realm-warning-text p {
-  color: var(--text-muted);
-  font-size: 1.05rem;
-  line-height: 1.65;
-}
-
-/* Mobile stacking */
-@media (max-width: 800px) {
-  .realm-warning-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .realm-warning-image {
-    flex: none;
-  }
-
-  .realm-warning-image img {
-    max-width: 260px;
-  }
-}
-
-
-/* Mobile stacking */
-@media (max-width: 800px) {
-  .realm-warning-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .realm-warning-image img {
-    max-width: 300px;
-  }
-}
-
+      .realm-warning-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .realm-warning-image img {
+        max-width: 260px;
+      }
+    }
 
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR INCLUDE -->
