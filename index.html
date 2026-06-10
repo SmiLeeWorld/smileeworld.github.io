@@ -321,14 +321,25 @@
       .pillars {
         grid-template-columns: 1fr;
       }
-.realm-warning-image {
-  text-align: center;
-  margin: 40px 0 20px;
+.realm-warning {
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.realm-warning-inner {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .realm-warning-image img {
   width: 100%;
-  max-width: 300px;   /* ← controls the size */
+  max-width: 360px; /* ← controls image size */
   border-radius: 12px;
   filter: grayscale(100%);
   opacity: 0.9;
@@ -342,9 +353,7 @@
 }
 
 .realm-warning-text {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
+  flex: 1;
 }
 
 .realm-warning-text p {
@@ -352,6 +361,19 @@
   font-size: 1.05rem;
   line-height: 1.65;
 }
+
+/* Mobile stacking */
+@media (max-width: 800px) {
+  .realm-warning-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .realm-warning-image img {
+    max-width: 300px;
+  }
+}
+
 
   </style>
 </head>
@@ -448,7 +470,7 @@
   <div class="realm-warning-inner">
 
     <div class="realm-warning-image">
-      <img src="/images/construction-300.png" alt="Realm portal forming" />
+      <img src="/images/your-image.png" alt="Realm portal forming">
     </div>
 
     <div class="realm-warning-text">
